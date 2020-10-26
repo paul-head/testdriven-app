@@ -39,7 +39,7 @@ def add_user():
         else:
             response_object['message'] = 'Sorry. That email already exists'
             return jsonify(response_object), 400
-    except exc.IntegrityError as e:
+    except exc.IntegrityError:
         db.session.rollback()
         return jsonify(response_object), 400
 
@@ -76,7 +76,7 @@ def get_all_users():
     response_object = {
         'status': 'success',
         'data': {
-            'users': [user.to_json() for user in User.query.all()] # ['USERSS', 'lalalala']  #  [user.to_json() for user in User.query.all()]
+            'users': [user.to_json() for user in User.query.all()]
         }
     }
     return jsonify(response_object), 200
