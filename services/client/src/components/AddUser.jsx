@@ -10,6 +10,8 @@ const AddUser = (props) => {
                     type="text"
                     placeholder="Enter a username"
                     required
+                    value={props.username}
+                    onChange={props.handleChange}
                 />
             </div>
             <div className="form-group">
@@ -19,6 +21,8 @@ const AddUser = (props) => {
                     type="text"
                     placeholder="Enter an email address"
                     required
+                    value={props.email}
+                    onChange={props.handleChange}
                 />
             </div>
             <input
