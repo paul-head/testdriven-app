@@ -33,7 +33,7 @@ class App extends Component {
             username: this.state.username,
             email: this.state.email,
         };
-        axios.post('http://localhost:5001/users', data)
+        axios.post('http://localhost:5001/users', data) // export REACT_APP_USERS_SERVICE_URL
             .then((res) => {
                 this.getUsers();
                 this.setState({ username: '', email: '' });

@@ -35,9 +35,29 @@ services:
 
   nginx:
     container_name: nginx
-    build: ./services/nginx
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile-prod
     restart: always
     ports:
     - 80:80
     depends_on:
+      - users
+      - client
+
+
+  client:
+    container_name: client
+    build:
+      context: ./services/client
+      dockerfile: Dockerfile-prod
+      args:
+        - NODE_ENV=production
+      # use this args to set another host ip
+      #  - REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL}
+    ports:
+      - 3007:80
+    depends_on:
+      - users
+    links:
       - users
