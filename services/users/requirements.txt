@@ -9,3 +9,4 @@ flake8==3.8.4
 flask-debugtoolbar==0.11.0
 Flask-Cors==3.0.9
 Flask-Migrate==2.5.3
+flask-bcrypt==0.7.1
