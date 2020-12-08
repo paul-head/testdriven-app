@@ -15,3 +15,5 @@ commands:
  docker-compose -f docker-compose-dev.yml run users python manage.py db migrate
  
  docker-compose -f docker-compose-dev.yml run users python manage.py db upgrade
+ 
+ docker-compose -f docker-compose-dev.yml run users python manage.py cov
